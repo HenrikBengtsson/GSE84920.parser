@@ -72,21 +72,21 @@ read_percentages <- function(file, ...) {
   
   ## Validation
   with(data, stopifnot(
-    hg19_frac >= 0, hg19_frac <= 1,
-    mm10_frac >= 0, mm10_frac <= 1,
-    hg19_count >= 0,
-    mm10_count >= 0,
+    all(hg19_frac >= 0), all(hg19_frac <= 1),
+    all(mm10_frac >= 0), all(mm10_frac <= 1),
+    all(hg19_count >= 0),
+    all(mm10_count >= 0),
     all(hg19_count + mm10_count == hg19mm10_count),
-    pair_count >= 0,
-    nchar(barcode1_inner) == 8L,
-    nchar(barcode2_outer) == 8L,
+    all(pair_count >= 0),
+    all(nchar(barcode1_inner) == 8L),
+    all(nchar(barcode2_outer) == 8L),
     all(is_observed %in% c("True", "Randomized")),
     all(Col10 %in% c("All", "Long")),
-    dpnii_1x >= 0,
-    dpnii_2x >= 0,
-    dpnii_3x >= 0,
-    dpnii_4x >= 0,
-    (is.na(hela_allele_frac) | hela_allele_frac >= 0)
+    all(dpnii_1x >= 0),
+    all(dpnii_2x >= 0),
+    all(dpnii_3x >= 0),
+    all(dpnii_4x >= 0),
+    all(is.na(hela_allele_frac) | hela_allele_frac >= 0)
   ))
 
   ## Cleanup
