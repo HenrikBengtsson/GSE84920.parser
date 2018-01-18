@@ -3,5 +3,7 @@ ramani
 
 Version: 0.0.0-9000 [2018-01-17]
 
+ * Add read_percentages() and read_validpairs().
+ 
  * Package created.
 
