@@ -4,18 +4,63 @@
 \alias{read_percentages}
 \title{Read Percentages Files}
 \usage{
-read_percentages(file, col_names = FALSE, ...)
+read_percentages(file, ...)
 }
 \arguments{
-\item{file}{Pathname to a *.percentages(.tar.gz) file}
+\item{file}{Pathname to a \file{*.percentages.txt(.gz)} file.}
+
+\item{...}{Additional arguments passed to \code{\link[readr:read_tsv]{readr::read_tsv()}}.}
 }
 \value{
-A data.frame
+A data.frame with 17 columns:
+\item{\code{hg19_frac}}{Fraction Reads Mapping to hg19}
+\item{\code{mm10_frac}}{Fraction Reads Mapping to mm10}
+\item{\code{hg19_count}}{Number of Reads Mapping to hg19}
+\item{\code{mm10_count}}{Number of Reads Mapping to mm10}
+\item{\code{hg19mm10_count}}{Total Number of Read Pairs filtering out
+interspecies (== \code{read_hg19_count} + \code{read_mm10_count})}
+\item{\code{pair_count}}{Total Number of Reads Pairs}
+\item{\code{barcode1_inner}}{Round 1 Barcode (Inner)}
+\item{\code{barcode2_outer}}{Round 2 Barcode (Outer)}
+\item{\code{is_observed}}{\code{True} or \code{Randomized};
+\code{True} are the observed data,
+\code{Randomized} are the result of shuffling all
+barcode assignments to new reads}
+\item{\code{Col10}}{\code{All} or \code{Long};
+\code{All} are all intrachromosomal / interchromosomal reads
+associated with a cellular index;
+\code{Long} are only inter- and intra >20kb}
+\item{\code{dpnii_1x}}{Number of times a DpnII fragment is observed once}
+\item{\code{dpnii_2x}}{Number of times a DpnII fragment is observed twice}
+\item{\code{dpnii_3x}}{Number of times a DpnII fragment is observed thrice}
+\item{\code{dpnii_4x}}{Number of times a DpnII fragment is observed four times}
+\item{\code{cistrans_ratio}}{Cis-trans ratio for that cellular index}
+\item{\code{hela_allele_frac}}{If applicable (only HeLa S3 and HAP1 cells),
+fraction of homozygous alternate HeLa allele calls}
+\item{\code{celltype}}{Programmed cell type assignment, if applicable.
+For ML libraries, only cells with >0.95 in \code{hg19_frac} or
+\code{mm10_frac} receive assignments.}
 }
 \description{
-Read Percentages Files
+A 'percentages' file provides summary statisics for each processed cellular
+index in combinatorial single-cell Hi-C data.
 }
 \details{
-The `read_percentages()` function does some basic validation on the
+The description here are adopted from \href{ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE84nnn/GSE84920/suppl/GSE84920\%5FREADME\%2Etxt}{GSE84920_README.txt}, which
+refers to the "manuscript" for description of the "PERCENTAGES" files.
+The column names returned are ours, because the data files do not provide
+column names.
+}
+\section{Validation}{
+
+The \code{read_percentages()} function does some basic validation on the
 values read.
+}
+
+\examples{
+path <- system.file("extdata", package = "ramani")
+file <- file.path(path, "GSM2254215_ML1_rows=1-50.percentages.txt.gz")
+data <- read_percentages(file)
+print(data)
+
 }
