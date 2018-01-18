@@ -3,4 +3,8 @@
 export(read_assignments)
 export(read_percentages)
 export(read_validpairs)
+importFrom(readr,col_character)
+importFrom(readr,col_double)
+importFrom(readr,col_integer)
+importFrom(readr,cols)
 importFrom(readr,read_tsv)

@@ -13,7 +13,23 @@ read_validpairs(file, ...)
 }
 \value{
 A data.frame with 17 columns:
-\item{\code{???}}{???}
+\item{\code{col1}}{}
+\item{\code{col2}}{}
+\item{\code{col3}}{}
+\item{\code{col4}}{}
+\item{\code{col5}}{}
+\item{\code{col6}}{}
+\item{\code{readname}}{Read names, e.g. \code{D00584:136:HMTLJBCXX:1:1101:10000:101176}}
+\item{\code{col8}}{}
+\item{\code{col9}}{}
+\item{\code{col10}}{Strand (\code{-} or \code{+})}
+\item{\code{col11}}{Strand (\code{-} or \code{+})}
+\item{\code{col12}}{Barcode ...}
+\item{\code{col13}}{Barcode ...}
+\item{\code{col14}}{}
+\item{\code{col15}}{}
+\item{\code{col16}}{}
+\item{\code{col17}}{}
 }
 \description{
 A 'VALIDPAIRS' file is for all valid pairs in each library.

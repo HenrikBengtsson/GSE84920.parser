@@ -62,5 +62,10 @@ path <- system.file("extdata", package = "ramani")
 file <- file.path(path, "GSM2254215_ML1.rows=1-1000.percentages.txt.gz")
 data <- read_percentages(file)
 print(data)
+### [ a 1000-by-17 table ]
+print(table(data$celltype))
+###   HAP1    HeLa    MEF   Patski Undetermined 
+###    156     163    174      152          355 
+
 
 }

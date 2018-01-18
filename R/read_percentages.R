@@ -51,24 +51,37 @@
 #' file <- file.path(path, "GSM2254215_ML1.rows=1-1000.percentages.txt.gz")
 #' data <- read_percentages(file)
 #' print(data)
+#' ### [ a 1000-by-17 table ]
+#' print(table(data$celltype))
+#' ###   HAP1    HeLa    MEF   Patski Undetermined 
+#' ###    156     163    174      152          355 
+#'
 #' 
-#' @importFrom readr read_tsv
+#' @importFrom readr read_tsv cols col_character col_integer col_double
 #' @export
 read_percentages <- function(file, ...) {
-  data <- read_tsv(file, col_names = FALSE, ...)
-  ## Default Col1-17
-  ## colnames(data) <- sprintf("Col%d", seq_len(ncol(data)))
-  colnames(data) <- c(
-    "hg19_frac", "mm10_frac", "hg19_count", "mm10_count", "hg19mm10_count",
-    "pair_count",
-    "barcode1_inner", "barcode2_outer",
-    "is_observed",
-    "Col10",
-    "dpnii_1x", "dpnii_2x", "dpnii_3x", "dpnii_4x",
-    "cistrans_ratio",
-    "hela_allele_frac",
-    "celltype"
+  col_types = cols(
+    hg19_frac        = col_double(),
+    mm10_frac        = col_double(),
+    hg19_count       = col_integer(),
+    mm10_count       = col_integer(),
+    hg19mm10_count   = col_integer(),
+    pair_count       = col_integer(),
+    barcode1_inner   = col_character(),
+    barcode2_outer   = col_character(),
+    is_observed      = col_character(),
+    Col10            = col_character(),
+    dpnii_1x         = col_integer(),
+    dpnii_2x         = col_integer(),
+    dpnii_3x         = col_integer(),
+    dpnii_4x         = col_integer(),
+    cistrans_ratio   = col_double(),
+    hela_allele_frac = col_double(),
+    celltype         = col_character()
   )
+  
+  col_names <- names(col_types$cols)
+  data <- read_tsv(file, col_names = col_names, col_types = col_types, ...)
   
   ## Validation
   with(data, stopifnot(
