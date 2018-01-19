@@ -86,3 +86,25 @@ import_validpairs <- function(con, file, debug = TRUE) {
   }
   tbl(con, "validpairs")
 }
+
+
+#' Get the number of rows in a database table
+#'
+#' @param tbl A [dbplyr::tbl_dbi] object.
+#'
+#' @return An integer.
+#'
+#' @references
+#' Implementation of `nrow2()` is from
+#' \url{http://www.win-vector.com/blog/2017/09/it-is-needlessly-difficult-to-count-rows-using-dplyr/}
+#'
+#' @importFrom dplyr ungroup transmute summarize pull
+#' @export
+nrow2 <- function(tbl) {
+  n <- nrow(tbl)
+  if(!is.na(n)) return(n)
+  tbl <- ungroup(tbl)
+  q <- transmute(tbl, constant = 1.0)
+  q <- summarize(q, tot = sum(constant, na.rm = TRUE))
+  pull(q)
+}
