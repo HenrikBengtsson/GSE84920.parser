@@ -3,6 +3,8 @@ ramani
 
 Version: 0.0.0-9000 [2018-01-18]
 
+ * Add db_connect(), import_assignments(), and import_validpairs().
+
  * Add read_assignments(), read_genomesize(), read_percentages(), and
    read_validpairs().
  

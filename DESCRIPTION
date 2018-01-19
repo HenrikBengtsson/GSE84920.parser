@@ -6,7 +6,11 @@ Description: Methods for working with the Ramani et al. Hi-C data sets.
 Depends:
     R (>= 3.4.0)
 Imports:
+    DBI,
+    dplyr,
     readr
+Suggests:
+    RSQLite
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
