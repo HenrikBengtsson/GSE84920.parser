@@ -4,13 +4,15 @@
 \alias{import_validpairs}
 \title{Import a Valid Pair File to Database}
 \usage{
-import_validpairs(con, file)
+import_validpairs(con, file, debug = TRUE)
 }
 \arguments{
 \item{con}{A DBIConnection.}
 
 \item{file}{An tab-delimited assignment file readable
 using \code{\link[=read_validpairs]{read_validpairs()}}.}
+
+\item{debug}{Should debug output be produced or not?}
 }
 \value{
 (invisibly) A \link[dbplyr:tbl_dbi]{dbplyr::tbl_dbi} object.

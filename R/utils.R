@@ -25,3 +25,12 @@ mmsg <- function(fmt, ..., class = NULL) {
 mnote <- function(fmt, ...) {
   mmsg(fmt, ..., class = "NOTE")
 }
+
+file_size <- function(file, ...) {
+  structure(file.size(file), class = "object_size")
+}
+
+format_size <- function(x, units = "auto", standard = "IEC", ...) {
+   format(x, units = units, standard = standard, ...)
+}
+

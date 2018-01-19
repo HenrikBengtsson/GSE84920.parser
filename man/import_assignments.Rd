@@ -4,13 +4,15 @@
 \alias{import_assignments}
 \title{Import an Assignments File to Database}
 \usage{
-import_assignments(con, file)
+import_assignments(con, file, debug = TRUE)
 }
 \arguments{
 \item{con}{A DBIConnection.}
 
 \item{file}{An tab-delimited assignment file readable
 using \code{\link[=read_assignments]{read_assignments()}}.}
+
+\item{debug}{Should debug output be produced or not?}
 }
 \value{
 (invisibly) A \link[dbplyr:tbl_dbi]{dbplyr::tbl_dbi} object.
