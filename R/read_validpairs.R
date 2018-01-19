@@ -48,12 +48,12 @@
 #' @export
 read_validpairs <- function(file, ...) {
   col_types <- cols(
-    col1 = col_character(),
-    col2 = col_integer(),
-    col3 = col_integer(),
-    col4 = col_character(),
-    col5 = col_integer(),
-    col6 = col_integer(),
+    chr_a = col_character(),
+    start_a = col_integer(),
+    end_a = col_integer(),
+    chr_b = col_character(),
+    start_b = col_integer(),
+    end_b = col_integer(),
     readname = col_character(),
     col8 = col_integer(),
     col9 = col_integer(),
@@ -72,8 +72,8 @@ read_validpairs <- function(file, ...) {
   
   ## Validation
   with(data, stopifnot(
-    all(col2 >= 0), all(col3 >= 0),
-    all(col5 >= 0), all(col6 >= 0),
+    all(start_a >= 0), all(end_a >= 0),
+    all(start_b >= 0), all(end_b >= 0),
     all(col8 >= 0), all(col9 >= 0),
     all(col10 %in% c("+", "-")),
     all(col11 %in% c("+", "-")),
