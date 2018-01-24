@@ -18,8 +18,8 @@
 #'  \item{`col9`}{}
 #'  \item{`col10`}{Strand (`-` or `+`)}
 #'  \item{`col11`}{Strand (`-` or `+`)}
-#'  \item{`col12`}{Barcode ...}
-#'  \item{`col13`}{Barcode ...}
+#'  \item{`inner_barcode`}{Barcode ...}
+#'  \item{`outer_barcode`}{Barcode ...}
 #'  \item{`col14`}{}
 #'  \item{`col15`}{}
 #'  \item{`col16`}{}
@@ -59,8 +59,8 @@ read_validpairs <- function(file, ...) {
     col9 = col_integer(),
     col10 = col_character(),  ## strand
     col11 = col_character(),  ## strand
-    col12 = col_character(),
-    col13 = col_character(),
+    inner_barcode = col_character(),
+    outer_barcode = col_character(),
     col14 = col_character(),
     col15 = col_integer(),
     col16 = col_character(),
@@ -77,8 +77,8 @@ read_validpairs <- function(file, ...) {
     all(col8 >= 0), all(col9 >= 0),
     all(col10 %in% c("+", "-")),
     all(col11 %in% c("+", "-")),
-    all(nchar(col12) == 8L),
-    all(nchar(col13) == 8L),
+    all(nchar(inner_barcode) == 8L),
+    all(nchar(outer_barcode) == 8L),
     all(col15 >= 0), all(col17 >= 0)
   ))
 

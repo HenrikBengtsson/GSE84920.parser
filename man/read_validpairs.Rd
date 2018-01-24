@@ -24,8 +24,8 @@ A data.frame with 17 columns:
 \item{\code{col9}}{}
 \item{\code{col10}}{Strand (\code{-} or \code{+})}
 \item{\code{col11}}{Strand (\code{-} or \code{+})}
-\item{\code{col12}}{Barcode ...}
-\item{\code{col13}}{Barcode ...}
+\item{\code{inner_barcode}}{Barcode ...}
+\item{\code{outer_barcode}}{Barcode ...}
 \item{\code{col14}}{}
 \item{\code{col15}}{}
 \item{\code{col16}}{}
