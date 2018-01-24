@@ -15,8 +15,8 @@
 #'  \item{`hg19mm10_count`}{Total Number of Read Pairs filtering out
 #'       interspecies (== `read_hg19_count` + `read_mm10_count`)}
 #'  \item{`pair_count`}{Total Number of Reads Pairs}
-#'  \item{`barcode1_inner`}{Round 1 Barcode (Inner)}
-#'  \item{`barcode2_outer`}{Round 2 Barcode (Outer)}
+#'  \item{`inner_barcode`}{Round 1 Barcode (Inner)}
+#'  \item{`outer_barcode`}{Round 2 Barcode (Outer)}
 #'  \item{`is_observed`}{`True` or `Randomized`;
 #'        `True` are the observed data,
 #'        `Randomized` are the result of shuffling all
@@ -67,8 +67,8 @@ read_percentages <- function(file, ...) {
     mm10_count       = col_integer(),
     hg19mm10_count   = col_integer(),
     pair_count       = col_integer(),
-    barcode1_inner   = col_character(),
-    barcode2_outer   = col_character(),
+    inner_barcode    = col_character(),
+    outer_barcode    = col_character(),
     is_observed      = col_character(),
     Col10            = col_character(),
     dpnii_1x         = col_integer(),
@@ -91,8 +91,8 @@ read_percentages <- function(file, ...) {
     all(mm10_count >= 0),
     all(hg19_count + mm10_count == hg19mm10_count),
     all(pair_count >= 0),
-    all(nchar(barcode1_inner) == 8L),
-    all(nchar(barcode2_outer) == 8L),
+    all(nchar(inner_barcode) == 8L),
+    all(nchar(outer_barcode) == 8L),
     all(is_observed %in% c("True", "Randomized")),
     all(Col10 %in% c("All", "Long")),
     all(dpnii_1x >= 0),

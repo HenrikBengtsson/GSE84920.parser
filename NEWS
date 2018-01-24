@@ -1,6 +1,12 @@
 ramani
 ======
 
+Version: 0.0.0-9001 [2018-01-23]
+
+ * Renamed barcode columns by read_percentages() to 'inner_barcode' and
+   'outer_barcode'.
+   
+
 Version: 0.0.0-9000 [2018-01-18]
 
  * Add db_connect(), import_assignments(), and import_validpairs().

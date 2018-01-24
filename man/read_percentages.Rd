@@ -20,8 +20,8 @@ A data.frame with 17 columns:
 \item{\code{hg19mm10_count}}{Total Number of Read Pairs filtering out
 interspecies (== \code{read_hg19_count} + \code{read_mm10_count})}
 \item{\code{pair_count}}{Total Number of Reads Pairs}
-\item{\code{barcode1_inner}}{Round 1 Barcode (Inner)}
-\item{\code{barcode2_outer}}{Round 2 Barcode (Outer)}
+\item{\code{inner_barcode}}{Round 1 Barcode (Inner)}
+\item{\code{outer_barcode}}{Round 2 Barcode (Outer)}
 \item{\code{is_observed}}{\code{True} or \code{Randomized};
 \code{True} are the observed data,
 \code{Randomized} are the result of shuffling all

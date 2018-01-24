@@ -101,6 +101,9 @@ import_validpairs <- function(con, file, debug = TRUE) {
 #' @importFrom dplyr ungroup transmute summarize pull
 #' @export
 nrow2 <- function(tbl) {
+  constant <- NULL # To please R CMD check
+  rm(list = "constant")
+  
   n <- nrow(tbl)
   if(!is.na(n)) return(n)
   tbl <- ungroup(tbl)
