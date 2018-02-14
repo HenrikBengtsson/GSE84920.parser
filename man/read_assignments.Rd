@@ -4,10 +4,12 @@
 \alias{read_assignments}
 \title{Read Assignments Files}
 \usage{
-read_assignments(file, ...)
+read_assignments(file, columns = NULL, ...)
 }
 \arguments{
 \item{file}{Pathname to a \file{*_assignments.txt(.gz)} file.}
+
+\item{columns}{(optional) Name of columns to be read.}
 
 \item{...}{Additional arguments passed to \code{\link[readr:read_tsv]{readr::read_tsv()}}.}
 }

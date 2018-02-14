@@ -4,6 +4,8 @@
 #'
 #' @param file Pathname to a \file{*.validPairs.txt(.gz)} file.
 #'
+#' @param columns (optional) Name of columns to be read.
+#'
 #' @param ... Additional arguments passed to [readr::read_tsv()].
 #'
 #' @return A data.frame with 17 columns:
@@ -44,9 +46,9 @@
 #' data <- read_validpairs(file)
 #' print(data)
 #' 
-#' @importFrom readr read_tsv cols col_character col_integer
+#' @importFrom readr read_tsv cols col_character col_integer col_skip
 #' @export
-read_validpairs <- function(file, ...) {
+read_validpairs <- function(file, columns = NULL, ...) {
   col_types <- cols(
     chr_a = col_character(),
     start_a = col_integer(),
@@ -66,6 +68,11 @@ read_validpairs <- function(file, ...) {
     col16 = col_character(),
     col17 = col_integer()
   )
+
+  if (!is.null(columns)) {
+    stopifnot(all(columns %in% names(col_types)))
+    for (name in columns) col_types[[name]] <- col_skip()
+  }
 
   col_names <- names(col_types$cols)
   data <- read_tsv(file, col_names = col_names, col_types = col_types, ...)

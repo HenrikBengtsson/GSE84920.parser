@@ -4,10 +4,12 @@
 \alias{read_percentages}
 \title{Read Percentages Files}
 \usage{
-read_percentages(file, ...)
+read_percentages(file, columns = NULL, ...)
 }
 \arguments{
 \item{file}{Pathname to a \file{*.percentages.txt(.gz)} file.}
+
+\item{columns}{(optional) Name of columns to be read.}
 
 \item{...}{Additional arguments passed to \code{\link[readr:read_tsv]{readr::read_tsv()}}.}
 }

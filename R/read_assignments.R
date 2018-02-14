@@ -4,6 +4,8 @@
 #'
 #' @param file Pathname to a \file{*_assignments.txt(.gz)} file.
 #'
+#' @param columns (optional) Name of columns to be read.
+#'
 #' @param ... Additional arguments passed to [readr::read_tsv()].
 #'
 #' @return A data.frame with four columns:
@@ -33,15 +35,21 @@
 #' data <- read_assignments(file)
 #' print(data)
 #' 
-#' @importFrom readr read_tsv cols col_character
+#' @importFrom readr read_tsv cols col_character col_skip
 #' @export
-read_assignments <- function(file, ...) {
+read_assignments <- function(file, columns = NULL, ...) {
   col_types <- cols(
     readname = col_character(),
     left_inner_barcode = col_character(),
     right_inner_barcode = col_character(),
     outer_barcode = col_character()
   )
+
+  if (!is.null(columns)) {
+    stopifnot(all(columns %in% names(col_types)))
+    for (name in columns) col_types[[name]] <- col_skip()
+  }
+
   col_names <- names(col_types$cols)
   data <- read_tsv(file, col_names = col_names, col_types = col_types, ...)
   

@@ -5,6 +5,8 @@
 #'
 #' @param file Pathname to a \file{*.percentages.txt(.gz)} file.
 #'
+#' @param columns (optional) Name of columns to be read.
+#'
 #' @param ... Additional arguments passed to [readr::read_tsv()].
 #'
 #' @return A data.frame with 17 columns:
@@ -57,9 +59,9 @@
 #' ###    156     163    174      152          355 
 #'
 #' 
-#' @importFrom readr read_tsv cols col_character col_integer col_double
+#' @importFrom readr read_tsv cols col_character col_integer col_double col_skip
 #' @export
-read_percentages <- function(file, ...) {
+read_percentages <- function(file, columns = NULL, ...) {
   col_types = cols(
     hg19_frac        = col_double(),
     mm10_frac        = col_double(),
@@ -79,7 +81,12 @@ read_percentages <- function(file, ...) {
     hela_allele_frac = col_double(),
     celltype         = col_character()
   )
-  
+
+  if (!is.null(columns)) {
+    stopifnot(all(columns %in% names(col_types)))
+    for (name in columns) col_types[[name]] <- col_skip()
+  }
+
   col_names <- names(col_types$cols)
   data <- read_tsv(file, col_names = col_names, col_types = col_types, ...)
   

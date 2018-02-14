@@ -4,10 +4,12 @@
 \alias{read_validpairs}
 \title{Read Valid-Pairs Files}
 \usage{
-read_validpairs(file, ...)
+read_validpairs(file, columns = NULL, ...)
 }
 \arguments{
 \item{file}{Pathname to a \file{*.validPairs.txt(.gz)} file.}
+
+\item{columns}{(optional) Name of columns to be read.}
 
 \item{...}{Additional arguments passed to \code{\link[readr:read_tsv]{readr::read_tsv()}}.}
 }
