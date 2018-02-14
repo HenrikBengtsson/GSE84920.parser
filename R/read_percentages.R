@@ -79,34 +79,36 @@ read_percentages <- function(file, columns = NULL, ...) {
     dpnii_4x         = col_integer(),
     cistrans_ratio   = col_double(),
     hela_allele_frac = col_double(),
-    celltype         = col_character()
+    celltype         = col_character(),
+    .default = col_skip()
   )
+  all_col_names <- names(col_types$cols)
 
   if (!is.null(columns)) {
-    stopifnot(all(columns %in% names(col_types)))
-    for (name in columns) col_types[[name]] <- col_skip()
+    stopifnot(all(columns %in% names(col_types$cols)))
+    col_types$cols <- col_types$cols[columns]
   }
 
-  col_names <- names(col_types$cols)
-  data <- read_tsv(file, col_names = col_names, col_types = col_types, ...)
+  data <- read_tsv(file, col_names = all_col_names, col_types = col_types, ...)
   
   ## Validation
+  col_names <- colnames(data)
   with(data, stopifnot(
-    all(hg19_frac >= 0), all(hg19_frac <= 1),
-    all(mm10_frac >= 0), all(mm10_frac <= 1),
-    all(hg19_count >= 0),
-    all(mm10_count >= 0),
-    all(hg19_count + mm10_count == hg19mm10_count),
-    all(pair_count >= 0),
-    all(nchar(inner_barcode) == 8L),
-    all(nchar(outer_barcode) == 8L),
-    all(is_observed %in% c("True", "Randomized")),
-    all(Col10 %in% c("All", "Long")),
-    all(dpnii_1x >= 0),
-    all(dpnii_2x >= 0),
-    all(dpnii_3x >= 0),
-    all(dpnii_4x >= 0),
-    all(is.na(hela_allele_frac) | hela_allele_frac >= 0)
+    !"hg_19_frac" %in% col_names || all(hg19_frac >= 0 & hg19_frac <= 1),
+    !"mm10_frac" %in% col_names || all(mm10_frac >= 0 & mm10_frac <= 1),
+    !"hg19_count" %in% col_names || all(hg19_count >= 0),
+    !"mm10_count" %in% col_names || all(mm10_count >= 0),
+    !all(c("hg19_count", "mm10_count", "hg19mm10_count") %in% col_names) || all(hg19_count + mm10_count == hg19mm10_count),
+    !"pair_count" %in% col_names || all(pair_count >= 0),
+    !"inner_barcode" %in% col_names || all(nchar(inner_barcode) == 8L),
+    !"outer_barcode" %in% col_names || all(nchar(outer_barcode) == 8L),
+    !"is_observed" %in% col_names || all(is_observed %in% c("True", "Randomized")),
+    !"Col10" %in% col_names || all(Col10 %in% c("All", "Long")),
+    !"dpnii_1x" %in% col_names || all(dpnii_1x >= 0),
+    !"dpnii_2x" %in% col_names || all(dpnii_2x >= 0),
+    !"dpnii_3x" %in% col_names || all(dpnii_3x >= 0),
+    !"dpnii_4x" %in% col_names || all(dpnii_4x >= 0),
+    !"hela_allele_frac" %in% col_names || all(is.na(hela_allele_frac) | hela_allele_frac >= 0)
   ))
 
   ## Cleanup

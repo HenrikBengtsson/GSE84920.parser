@@ -66,27 +66,33 @@ read_validpairs <- function(file, columns = NULL, ...) {
     col14 = col_character(),
     col15 = col_integer(),
     col16 = col_character(),
-    col17 = col_integer()
+    col17 = col_integer(),
+    .default = col_skip()
   )
+  all_col_names <- names(col_types$cols)
 
   if (!is.null(columns)) {
-    stopifnot(all(columns %in% names(col_types)))
-    for (name in columns) col_types[[name]] <- col_skip()
+    stopifnot(all(columns %in% names(col_types$cols)))
+    col_types$cols <- col_types$cols[columns]
   }
 
-  col_names <- names(col_types$cols)
-  data <- read_tsv(file, col_names = col_names, col_types = col_types, ...)
+  data <- read_tsv(file, col_names = all_col_names, col_types = col_types, ...)
   
   ## Validation
+  col_names <- colnames(data)
   with(data, stopifnot(
-    all(start_a >= 0), all(end_a >= 0),
-    all(start_b >= 0), all(end_b >= 0),
-    all(col8 >= 0), all(col9 >= 0),
-    all(col10 %in% c("+", "-")),
-    all(col11 %in% c("+", "-")),
-    all(nchar(inner_barcode) == 8L),
-    all(nchar(outer_barcode) == 8L),
-    all(col15 >= 0), all(col17 >= 0)
+    !"start_a" %in% col_names || all(start_a >= 0),
+    !"end_a" %in% col_names || all(end_a >= 0),
+    !"start_b" %in% col_names || all(start_b >= 0),
+    !"end_b" %in% col_names || all(end_b >= 0),
+    !"col8" %in% col_names || all(col8 >= 0),
+    !"col9" %in% col_names || all(col9 >= 0),
+    !"col10" %in% col_names || all(col10 %in% c("+", "-")),
+    !"col11" %in% col_names || all(col11 %in% c("+", "-")),
+    !"inner_barcode" %in% col_names || all(nchar(inner_barcode) == 8L),
+    !"outer_barcode" %in% col_names || all(nchar(outer_barcode) == 8L),
+    !"col15" %in% col_names || all(col15 >= 0),
+    !"col17" %in% col_names || all(col17 >= 0)
   ))
 
   data

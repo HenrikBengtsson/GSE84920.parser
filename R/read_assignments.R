@@ -42,22 +42,24 @@ read_assignments <- function(file, columns = NULL, ...) {
     readname = col_character(),
     left_inner_barcode = col_character(),
     right_inner_barcode = col_character(),
-    outer_barcode = col_character()
+    outer_barcode = col_character(),
+    .default = col_skip()
   )
+  all_col_names <- names(col_types$cols)
 
   if (!is.null(columns)) {
-    stopifnot(all(columns %in% names(col_types)))
-    for (name in columns) col_types[[name]] <- col_skip()
+    stopifnot(all(columns %in% names(col_types$cols)))
+    col_types$cols <- col_types$cols[columns]
   }
 
-  col_names <- names(col_types$cols)
-  data <- read_tsv(file, col_names = col_names, col_types = col_types, ...)
+  data <- read_tsv(file, col_names = all_col_names, col_types = col_types, ...)
   
   ## Validation
+  col_names <- colnames(data)
   with(data, stopifnot(
-    all(nchar(left_inner_barcode) == 8L),
-    all(nchar(right_inner_barcode) == 8L),
-    all(nchar(outer_barcode) == 8L)
+    !"left_inner_barcode" %in% col_names || all(nchar(left_inner_barcode) == 8L),
+    !"right_inner_barcode" %in% col_names || all(nchar(right_inner_barcode) == 8L),
+    !"outer_barcode" %in% col_names || all(nchar(outer_barcode) == 8L)
   ))
 
   data

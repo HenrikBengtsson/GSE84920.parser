@@ -1,6 +1,12 @@
 ramani
 ======
 
+Version: 0.0.0-9002 [2018-02-14]
+
+ * read_nnn() functions gained argument 'columns' to specify which columns
+   to be read.  The default (NULL) is to read all _known_ columns.
+
+
 Version: 0.0.0-9001 [2018-01-23]
 
  * Renamed barcode columns by read_percentages() and read_validpairs() to
