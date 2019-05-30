@@ -1,12 +1,23 @@
 ramani
 ======
 
+Version: 0.1.0 [2018-05-30]
+
+SIGINIFICANT CHANGES:
+
+ * No updates. Just a formal release version.
+
+
 Version: 0.0.0-9003 [2018-05-30]
+
+NEW FEATURES:
 
  * Add example(import_assigments).
  
 
 Version: 0.0.0-9002 [2018-02-14]
+
+NEW FEATURES:
 
  * read_nnn() functions gained argument 'columns' to specify which columns
    to be read.  The default (NULL) is to read all _known_ columns.
@@ -14,11 +25,15 @@ Version: 0.0.0-9002 [2018-02-14]
 
 Version: 0.0.0-9001 [2018-01-23]
 
+NEW FEATURES:
+
  * Renamed barcode columns by read_percentages() and read_validpairs() to
    'inner_barcode' and 'outer_barcode'.
    
 
 Version: 0.0.0-9000 [2018-01-18]
+
+NEW FEATURES:
 
  * Add db_connect(), import_assignments(), and import_validpairs().
 
