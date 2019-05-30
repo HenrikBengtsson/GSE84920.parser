@@ -33,8 +33,6 @@ where \code{LEFT_INNER_BARCODE} and \code{RIGHT_INNER_BARCODE} should match for
 valid reads.  We include all reads here, but note that for all analyses
 presented in the associated paper, all reads where these barcodes do not
 match were discarded."
-
-[ed. we think they meant ASSIGNMENTS]: R:ed.%20we%20think%20they%20meant%20ASSIGNMENTS%5C
 }
 \section{Validation}{
 
