@@ -4,12 +4,12 @@
 \alias{db_connect}
 \title{Set up a Database}
 \usage{
-db_connect(name, path = "sqlite_data", engine = RSQLite::SQLite())
+db_connect(name, path = ".sqlite_data", engine = RSQLite::SQLite())
 }
 \arguments{
 \item{name}{The name of a data set}
 
-\item{path}{Path where to store file database, if applicable.}
+\item{path}{The path where to store file database, if applicable.}
 
 \item{engine}{A DBI-compatible database engine.}
 }

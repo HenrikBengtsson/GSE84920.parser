@@ -1,6 +1,11 @@
 ramani
 ======
 
+Version: 0.0.0-9003 [2018-05-30]
+
+ * Add example(import_assigments).
+ 
+
 Version: 0.0.0-9002 [2018-02-14]
 
  * read_nnn() functions gained argument 'columns' to specify which columns
@@ -21,4 +26,3 @@ Version: 0.0.0-9000 [2018-01-18]
    read_validpairs().
  
  * Package created.
-

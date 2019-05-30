@@ -3,4 +3,5 @@
 ^references/
 ^[^/]*\.psl$
 ^[^/]*\.psl\.scores$
-
+^incl/
+^.sqlite_data/

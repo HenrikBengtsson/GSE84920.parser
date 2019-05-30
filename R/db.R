@@ -2,7 +2,7 @@
 #'
 #' @param name The name of a data set
 #'
-#' @param path Path where to store file database, if applicable.
+#' @param path The path where to store file database, if applicable.
 #'
 #' @param engine A DBI-compatible database engine.
 #'
@@ -11,7 +11,7 @@
 #' @importFrom DBI dbConnect
 #' @importFrom utils file_test
 #' @export
-db_connect <- function(name, path = "sqlite_data", engine = RSQLite::SQLite()) {
+db_connect <- function(name, path = ".sqlite_data", engine = RSQLite::SQLite()) {
   if (!file_test("-d", path)) dir.create(path, recursive = TRUE)
   stopifnot(file_test("-d", path))
   pathname <- file.path(path, sprintf("%s.sqlite", name))
@@ -29,6 +29,8 @@ db_connect <- function(name, path = "sqlite_data", engine = RSQLite::SQLite()) {
 #' @param debug Should debug output be produced or not?
 #'
 #' @return (invisibly) A [dbplyr::tbl_dbi] object.
+#'
+#' @example incl/import.R
 #'
 #' @importFrom DBI dbWriteTable
 #' @importFrom dplyr tbl
