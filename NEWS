@@ -1,6 +1,14 @@
 ramani
 ======
 
+Version: 0.1.2 [2018-07-03]
+
+BUG FIXES:
+
+ * dbplyr was missing from the Suggests package list, which caused
+   'R CMD check' to fail on fresh systems.
+
+
 Version: 0.1.1 [2018-07-03]
 
 DOCUMENTATION:
