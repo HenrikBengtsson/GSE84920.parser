@@ -54,11 +54,17 @@ See `help("import_assignments", package = "ramani")` for an example.
 
 ## Install
 
-This package is available on neither CRAN nor Bioconductor.  To install it, clone this repository and run:
+This package is available on neither CRAN nor Bioconductor.
+To install it directly from GitHub, use the [remotes] package:
+```r
+> remotes::install_github("HenrikBengtsson/ramani")
+```
 
+Alternatively, clone the repository and run:
 ```r
 > install.packages(".", repos = NULL)
 ```
 
 
 [R]: https://www.r-project.org/
+[remotes]: https://cran.r-project.org/package=remotes
