@@ -1,6 +1,6 @@
 #' Read Percentages Files
 #'
-#' A 'percentages' file provides summary statisics for each processed cellular
+#' A 'percentages' file provides summary statistics for each processed cellular
 #' index in combinatorial single-cell Hi-C data.
 #'
 #' @param file Pathname to a \file{*.percentages.txt(.gz)} file.
@@ -26,7 +26,7 @@
 #'  \item{`Col10`}{`All` or `Long`;
 #'        `All` are all intrachromosomal / interchromosomal reads
 #'        associated with a cellular index;
-#'        `Long` are only inter- and intra >20kb}
+#'        `Long` are only inter- and intra > 20 kbp}
 #'  \item{`dpnii_1x`}{Number of times a DpnII fragment is observed once}
 #'  \item{`dpnii_2x`}{Number of times a DpnII fragment is observed twice}
 #'  \item{`dpnii_3x`}{Number of times a DpnII fragment is observed thrice}
