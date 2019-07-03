@@ -8,7 +8,7 @@ This [R] package provides an R API for working with the Ramani et al. Hi-C data 
 The package also provides a Bash script for splitting a HiC-count data file into chromosome-pair files.  This  [`split.sh`](inst/scripts/split.sh) script is located under `system.file("scripts", package = "ramani")`.
 
 ```sh
-$ ./split.sh 
+$ split.sh 
 Split HiC Count Data File into Chromosome-Pair Files
 
 Usage:
