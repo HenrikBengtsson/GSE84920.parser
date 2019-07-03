@@ -14,7 +14,7 @@ db_connect(name, path = ".sqlite_data", engine = RSQLite::SQLite())
 \item{engine}{A DBI-compatible database engine.}
 }
 \value{
-con A DBIConnection.
+con A \link[DBI:DBIConnection-class]{DBIConnection}.
 }
 \description{
 Set up a Database

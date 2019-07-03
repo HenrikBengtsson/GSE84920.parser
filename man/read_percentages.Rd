@@ -31,7 +31,7 @@ barcode assignments to new reads}
 \item{\code{Col10}}{\code{All} or \code{Long};
 \code{All} are all intrachromosomal / interchromosomal reads
 associated with a cellular index;
-\code{Long} are only inter- and intra >20kb}
+\code{Long} are only inter- and intra > 20 kbp}
 \item{\code{dpnii_1x}}{Number of times a DpnII fragment is observed once}
 \item{\code{dpnii_2x}}{Number of times a DpnII fragment is observed twice}
 \item{\code{dpnii_3x}}{Number of times a DpnII fragment is observed thrice}
@@ -44,7 +44,7 @@ For ML libraries, only cells with >0.95 in \code{hg19_frac} or
 \code{mm10_frac} receive assignments.}
 }
 \description{
-A 'percentages' file provides summary statisics for each processed cellular
+A 'percentages' file provides summary statistics for each processed cellular
 index in combinatorial single-cell Hi-C data.
 }
 \details{

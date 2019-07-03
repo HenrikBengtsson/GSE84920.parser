@@ -6,7 +6,7 @@
 #'
 #' @param engine A DBI-compatible database engine.
 #'
-#' @return con A DBIConnection.
+#' @return con A \link[DBI:DBIConnection-class]{DBIConnection}.
 #'
 #' @importFrom DBI dbConnect
 #' @importFrom utils file_test
