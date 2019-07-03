@@ -23,12 +23,11 @@
 ### to folder hicData/GSE35156_GSM862720/ with names 
 ###
 ### Details:
-### All produced files are written to folder 'hicData/<gse_id>_<gsm_id>/'
-### where <gse_id> and <gsm_id> are inferred from the basename of the
-### input '*.summary.txt.gz' file.  This output folder is automatically
-### created, if missing.
-### The produced files are names '<name>,<chr_i>_vs_<chr_j>.tsv.gz' where
-### <name> is the name of input '*.summary.txt.gz' file without the extension.
+### The produced files are names '<name>,<chr_i>_vs_<chr_j>.tsv.gz' where <name>
+### is the name of input '*.summary.txt.gz' file without the extension. The
+### files are written to folder 'hicData/<gse_id>_<gsm_id>/' where <gse_id> and
+### <gsm_id> are inferred from the <name>. This folder is automatically created,
+### if missing.
 ###
 ### Version: 0.1.1
 ### Copyright: Henrik Bengtsson (2017-2019)
