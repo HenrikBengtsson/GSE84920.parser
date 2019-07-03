@@ -30,7 +30,7 @@
 ### The produced files are names '<name>,<chr_i>_vs_<chr_j>.tsv.gz' where
 ### <name> is the name of input '*.summary.txt.gz' file without the extension.
 ###
-### Version: 0.1.0-9000
+### Version: 0.1.1
 ### Copyright: Henrik Bengtsson (2017-2019)
 ### License: GPL (>= 3.0)
 ### Source: https://github.com/HenrikBengtsson/ramani
