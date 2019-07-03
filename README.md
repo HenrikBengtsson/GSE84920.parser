@@ -1,6 +1,11 @@
 # ramani: Access Ramani et al. Hi-C Data
 
-This [R] package provides an R API for working with the Ramani et al. Hi-C data sets, e.g. [GSM2254215](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2254215).
+This [R] package provides a shell script and an R API for working with the Ramani et al. (2017) Hi-C data sets, e.g. [GSM2254215](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2254215).
+
+REFERENCES:
+
+1. Ramani, V., Deng, X., Qiu, R., Gunderson, K. L., Steemers, F. J., Disteche, C. M., … Shendure, J. (2017). Massively multiplex single-cell Hi-C. Nature methods, 14(3), 263–266. doi:10.1038/nmeth.4155, [PMC5330809](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5330809/)
+
 
 
 ## Splitting whole-genome files into chromosome-pair files
@@ -39,7 +44,7 @@ files are written to folder 'hicData/<gse_id>_<gsm_id>/' where <gse_id> and
 <gsm_id> are inferred from the <name>. This folder is automatically created,
 if missing.
 
-Version: 0.1.1
+Version: 0.1.2
 Copyright: Henrik Bengtsson (2017-2019)
 License: GPL (>= 3.0)
 Source: https://github.com/HenrikBengtsson/ramani
@@ -61,13 +66,6 @@ R package ramani is only available via [GitHub](https://github.com/HenrikBengtss
 remotes::install_github("HenrikBengtsson/ramani")
 ```
 
-### Pre-release version
-
-To install the pre-release version that is available in Git branch `develop` on GitHub, use:
-```r
-remotes::install_github("HenrikBengtsson/ramani@develop")
-```
-This will install the package from source.  
 
 
 
