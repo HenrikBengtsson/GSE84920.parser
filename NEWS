@@ -1,6 +1,17 @@
 ramani
 ======
 
+Version: 0.1.0-9000 [2018-07-03]
+
+DOCUMENTATION:
+
+ * Added more details to 'split.sh --help'
+ 
+BUG FIXES:
+
+ * split.sh gave "/bin/env: bad interpreter" on Ubuntu.
+ 
+
 Version: 0.1.0 [2018-05-30]
 
 SIGINIFICANT CHANGES:
