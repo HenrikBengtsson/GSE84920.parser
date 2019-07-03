@@ -10,6 +10,7 @@ Imports:
     dplyr,
     readr
 Suggests:
+    dbplyr,
     RSQLite
 License: GPL (>= 3)
 Encoding: UTF-8

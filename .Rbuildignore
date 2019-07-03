@@ -5,3 +5,4 @@
 ^[^/]*\.psl\.scores$
 ^incl/
 ^.sqlite_data/
+.travis.yml
