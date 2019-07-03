@@ -1,6 +1,6 @@
 Package: ramani
 Title: Access Ramani et al. Hi-C Data
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: person("Henrik", "Bengtsson", email = "henrik.bengtsson@ucsf.edu", role = c("aut", "cre"))
 Description: Methods for working with the Ramani et al. Hi-C data sets.
 Depends:
