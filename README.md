@@ -1,4 +1,4 @@
-# ramani - Access Ramani et al. Hi-C Data
+# ramani: Access Ramani et al. Hi-C Data
 
 This [R] package provides an R API for working with the Ramani et al. Hi-C data sets, e.g. [GSM2254215](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2254215).
 
@@ -52,19 +52,29 @@ See `help("import_assignments", package = "ramani")` for an example.
 
 
 
-## Install
-
-This package is available on neither CRAN nor Bioconductor.
-To install it directly from GitHub, use the [remotes] package:
-```r
-> remotes::install_github("HenrikBengtsson/ramani")
-```
-
-Alternatively, clone the repository and run:
-```r
-> install.packages(".", repos = NULL)
-```
-
-
 [R]: https://www.r-project.org/
 [remotes]: https://cran.r-project.org/package=remotes
+
+## Installation
+R package ramani is only available via [GitHub](https://github.com/HenrikBengtsson/ramani) and can be installed in R as:
+```r
+remotes::install_github("HenrikBengtsson/ramani")
+```
+
+
+
+
+## Contributions
+
+This Git repository uses the [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/) branching model (the [`git flow`](https://github.com/petervanderdoes/gitflow-avh) extension is useful for this).  The [`develop`](https://github.com/HenrikBengtsson/ramani/tree/develop) branch contains the latest contributions and other code that will appear in the next release, and the [`master`](https://github.com/HenrikBengtsson/ramani) branch contains the code of the latest release.
+
+Contributing to this package is easy.  Just send a [pull request](https://help.github.com/articles/using-pull-requests/).  When you send your PR, make sure `develop` is the destination branch on the [ramani repository](https://github.com/HenrikBengtsson/ramani).  Your PR should pass `R CMD check --as-cran`, which will also be checked by <a href="https://travis-ci.org/HenrikBengtsson/ramani">Travis CI</a> and  when the PR is submitted.
+
+
+## Software status
+
+| Resource:     | GitHub        | Travis CI       | AppVeyor         |
+| ------------- | ------------------- | --------------- | ---------------- |
+| _Platforms:_  | _Multiple_          | _Linux & macOS_ | _Windows_        |
+| R CMD check   |  | <a href="https://travis-ci.org/HenrikBengtsson/ramani"><img src="https://travis-ci.org/HenrikBengtsson/ramani.svg" alt="Build status"></a>   |  |
+| Test coverage |                     | <a href="https://codecov.io/gh/HenrikBengtsson/ramani"><img src="https://codecov.io/gh/HenrikBengtsson/ramani/branch/develop/graph/badge.svg" alt="Coverage Status"/></a>     |                  |
