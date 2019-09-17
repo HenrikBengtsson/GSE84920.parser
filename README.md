@@ -85,7 +85,7 @@ Lets look at the content of each of these `*.txt.gz` files:
 ```
 
 
-Reading these full HiC files can take quite a while, particularly the ones with "assignments" and "validPairs" data.  Because of this, you might want to import these data (once) into a local database and work with the data from there.  See `help("import_assignments", package = "ramani")` for an example showing how to import into an SQLite database on file, which is easy since it requires zero setup.
+Reading the _full_ Ramani HiC files can take quite a while, particularly the ones with "assignments" and "validPairs" data.  Because of this, you might want to import these data (once) into a local database and work with the data from there.  See `help("import_assignments", package = "ramani")` for an example showing how to import into an SQLite database on file, which is easy since it requires zero setup.
 
 
 

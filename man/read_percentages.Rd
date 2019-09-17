@@ -64,7 +64,23 @@ path <- system.file("extdata", package = "ramani")
 file <- file.path(path, "GSM2254215_ML1.rows=1-1000.percentages.txt.gz")
 data <- read_percentages(file)
 print(data)
-### [ a 1000-by-17 table ]
+# # A tibble: 1,000 x 16
+#    hg19_frac mm10_frac hg19_count mm10_count pair_count inner_barcode outer_barcode is_observed
+#        <dbl>     <dbl>      <int>      <int>      <int> <chr>         <chr>         <chr>      
+#  1     1.000 0.0000356      28050          1      28052 ACCACCAC      TCAGATGC      True       
+#  2     0.680 0.320          19081       8970      28052 ACCACCAC      TCAGATGC      Randomized 
+#  3     1.000 0.0000370      27010          1      28052 ACCACCAC      TCAGATGC      True       
+#  4     0.683 0.317          18444       8555      28052 ACCACCAC      TCAGATGC      Randomized 
+#  5     0     1                  0          1          1 CATAGCGC      ACTTGATA      True       
+#  6     1     0                  1          0          1 CATAGCGC      ACTTGATA      Randomized 
+#  7     0     1                  0          1          1 CATAGCGC      ACTTGATA      True       
+#  8     1     0                  1          0          1 CATAGCGC      ACTTGATA      Randomized 
+#  9     1     0                  2          0          2 GGCCGTTC      GCCATTAA      True       
+# 10     1     0                  2          0          2 GGCCGTTC      GCCATTAA      Randomized 
+# # … with 990 more rows, and 8 more variables: Col10 <chr>, dpnii_1x <int>, dpnii_2x <int>,
+# #   dpnii_3x <int>, dpnii_4x <int>, cistrans_ratio <dbl>, hela_allele_frac <dbl>,
+# #   celltype <chr>
+
 print(table(data$celltype))
 ###   HAP1    HeLa    MEF   Patski Undetermined 
 ###    156     163    174      152          355 

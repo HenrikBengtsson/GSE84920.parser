@@ -56,5 +56,20 @@ path <- system.file("extdata", package = "ramani")
 file <- file.path(path, "GSM2254215_ML1.rows=1-1000.validPairs.txt.gz")
 data <- read_validpairs(file)
 print(data)
+# # A tibble: 1,000 x 17
+#    chr_a start_a  end_a chr_b start_b  end_b readname  col8  col9 col10 col11 inner_barcode
+#    <chr>   <int>  <int> <chr>   <int>  <int> <chr>    <int> <int> <chr> <chr> <chr>        
+#  1 mous…  2.28e7 2.28e7 mous…  5.33e7 5.33e7 D00584:…    37    42 +     -     ATCCGCGG     
+#  2 huma…  8.86e7 8.86e7 huma…  8.91e7 8.91e7 D00584:…    42    42 -     -     GAGGAGCA     
+#  3 huma…  1.27e8 1.27e8 huma…  1.27e8 1.27e8 D00584:…    42    42 +     +     GCTACGGT     
+#  4 huma…  4.21e7 4.21e7 huma…  4.27e7 4.27e7 D00584:…    42    42 +     +     AGGTGCGA     
+#  5 huma…  2.09e8 2.09e8 huma…  2.32e8 2.32e8 D00584:…    42    35 +     -     GCCTCGAA     
+#  6 huma…  5.57e6 5.57e6 huma…  1.50e8 1.50e8 D00584:…    42    42 +     -     GCTCGCTA     
+#  7 mous…  4.12e7 4.12e7 mous…  4.12e7 4.12e7 D00584:…    42    42 +     -     GAGGAGCA     
+#  8 mous…  6.54e7 6.54e7 mous…  6.59e7 6.59e7 D00584:…    42    42 -     +     TCCGGACA     
+#  9 huma…  1.82e8 1.82e8 huma…  1.82e8 1.82e8 D00584:…    42    42 +     -     CAGGCTTG     
+# 10 mous…  5.86e7 5.86e7 mous…  6.33e7 6.33e7 D00584:…    42    42 +     +     TCACGAGC     
+# # … with 990 more rows, and 5 more variables: outer_barcode <chr>, col14 <chr>, col15 <int>,
+# #   col16 <chr>, col17 <int>
 
 }
