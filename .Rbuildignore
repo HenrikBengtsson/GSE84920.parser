@@ -6,3 +6,8 @@
 ^incl/
 ^.sqlite_data/
 .travis.yml
+appveyor.yml
+CONDUCT.md
+OVERVIEW.md
+Makefile
+.make/
