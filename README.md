@@ -11,7 +11,7 @@ The Ramani data set is published on NCBI's Gene Expression Omnibus (GEO) in the 
  * [GSM2254219]: Combinatorial scHi-C Library PL2
  * [GSM2438426]: Combinatorial scHi-C Library ML4
 
-Except for the last sample (ML4), they are all from human and mouse cell lines that contains HeLa S3, HAP1, Patski, and primary MEF cells.
+Except for the last sample (ML4), they are all from human cell lines (labelled HAP1, HeLa, K562, Asynchronous, Nocadazole), and mouse cell lines (labelled MEF and Patski).
 
 
 ## R API
