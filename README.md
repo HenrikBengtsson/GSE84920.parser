@@ -1,15 +1,22 @@
 # ramani: Access Ramani et al. Hi-C Data
 
-This [R] package provides a shell script and an R API for working with the Ramani et al. (2017) Hi-C data sets, e.g. [GSM2254215](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2254215).
+This [R] package provides a shell script and an R API for working with the Ramani et al. (2017) Hi-C data set.
 
-REFERENCES:
+The Ramani data set is published on NCBI's Gene Expression Omnibus (GEO) in the GEO series [GSE84920] \(titled 'Massively multiplex single-cell Hi-C'\).  it contains GEO samples:
 
-1. Ramani, V., Deng, X., Qiu, R., Gunderson, K. L., Steemers, F. J., Disteche, C. M., … Shendure, J. (2017). Massively multiplex single-cell Hi-C. Nature methods, 14(3), 263–266. doi:10.1038/nmeth.4155, [PMC5330809](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5330809/)
+ * [GSM2254215]: Combinatorial scHi-C Library ML1
+ * [GSM2254216]: Combinatorial scHi-C Library ML2
+ * [GSM2254217]: Combinatorial scHi-C Library ML3
+ * [GSM2254218]: Combinatorial scHi-C Library PL1
+ * [GSM2254219]: Combinatorial scHi-C Library PL2
+ * [GSM2438426]: Combinatorial scHi-C Library ML4
+
+Except for the last sample (ML4), they are all from human and mouse cell lines that contains HeLa S3, HAP1, Patski, and primary MEF cells.
 
 
 ## R API
 
-This package provides functions for reading data files of the format that is used by Ramani et al. (2017).  It also includes a small subset of these data for the purpose of illustrating and testing the different functions:
+This R package provides functions for reading the above GEO data set, and other data with the same file formats, into R.  It also includes a small subset of the ML1 data for the purpose of illustrating and testing the different functions:
 
 ```r
 > library(ramani)
@@ -143,6 +150,9 @@ R package ramani is only available via [GitHub](https://github.com/HenrikBengtss
 remotes::install_github("HenrikBengtsson/ramani")
 ```
 
+## References
+
+1. Ramani, V., Deng, X., Qiu, R., Gunderson, K. L., Steemers, F. J., Disteche, C. M., … Shendure, J. (2017). Massively multiplex single-cell Hi-C. Nature methods, 14(3), 263–266. doi:10.1038/nmeth.4155, [PMC5330809](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5330809/)
 
 
 
@@ -160,3 +170,13 @@ Contributing to this package is easy.  Just send a [pull request](https://help.g
 | _Platforms:_  | _Multiple_          | _Linux & macOS_ | _Windows_        |
 | R CMD check   |  | <a href="https://travis-ci.org/HenrikBengtsson/ramani"><img src="https://travis-ci.org/HenrikBengtsson/ramani.svg" alt="Build status"></a>   | <a href="https://ci.appveyor.com/project/HenrikBengtsson/ramani"><img src="https://ci.appveyor.com/api/projects/status/github/HenrikBengtsson/ramani?svg=true" alt="Build status"></a> |
 | Test coverage |                     | <a href="https://codecov.io/gh/HenrikBengtsson/ramani"><img src="https://codecov.io/gh/HenrikBengtsson/ramani/branch/develop/graph/badge.svg" alt="Coverage Status"/></a>     |                  |
+
+
+
+[GSE84920]: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE84920
+[GSM2254215]: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2254215
+[GSM2254216]: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2254216
+[GSM2254217]: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2254217
+[GSM2254218]: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2254218
+[GSM2254219]: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2254219
+[GSM2438426]: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2254226
