@@ -5,13 +5,27 @@ This [R] package provides a shell script and an R API for working with the Raman
 The Ramani data set is published on NCBI's Gene Expression Omnibus (GEO) in the GEO series [GSE84920] \(titled 'Massively multiplex single-cell Hi-C'\).  it contains GEO samples:
 
  * [GSM2254215]: Combinatorial scHi-C Library ML1
+   - human cells ('HAP1', 'HeLa')
+   - mouse cells ('MEF', 'Patski')
  * [GSM2254216]: Combinatorial scHi-C Library ML2
+   - human cells ('HAP1', 'HeLa')
+   - mouse cells ('MEF', 'Patski')
  * [GSM2254217]: Combinatorial scHi-C Library ML3
+   - human cells ('GM12878', 'K562')
+   - mouse cells ('MEF', 'Patski')
  * [GSM2254218]: Combinatorial scHi-C Library PL1
+   - human cells ('HAP1', 'HeLa')
+   - mouse cells ('MEF', 'Patski')
  * [GSM2254219]: Combinatorial scHi-C Library PL2
- * [GSM2438426]: Combinatorial scHi-C Library ML4 (\*\*)
+   - human cells ('HAP1', 'HeLa')
+   - mouse cells ('MEF', 'Patski')
+ * [GSM2438426]: Combinatorial scHi-C Library ML4 (\*\*):
+   - human cells ('Asynchronous', 'Nocadazole')
+   - mouse cells ('Patski')
+   
 
-Except for the last sample (ML4), they are all from human cell lines (labelled HAP1, HeLa, K562, Asynchronous, Nocadazole), and mouse cell lines (labelled MEF and Patski).
+All samples have human cell lines (labelled 'HAP1', 'HeLa', 'K562', 'Asynchronous', 'Nocadazole'), and mouse cell lines (labelled 'MEF' and 'Patski').
+
 
 _Footnote:_  
 \*\*: The ML4 files are of slightly different file format than the other sets.  Specifically, the `*.validPairs.txt.gz` file has an additional three columns appended at the end - `ramani::read_validpairs()` will _not_ be able to read those data because of that.
