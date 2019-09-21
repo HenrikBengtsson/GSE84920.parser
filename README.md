@@ -9,9 +9,12 @@ The Ramani data set is published on NCBI's Gene Expression Omnibus (GEO) in the 
  * [GSM2254217]: Combinatorial scHi-C Library ML3
  * [GSM2254218]: Combinatorial scHi-C Library PL1
  * [GSM2254219]: Combinatorial scHi-C Library PL2
- * [GSM2438426]: Combinatorial scHi-C Library ML4
+ * [GSM2438426]: Combinatorial scHi-C Library ML4 (\*\*)
 
 Except for the last sample (ML4), they are all from human cell lines (labelled HAP1, HeLa, K562, Asynchronous, Nocadazole), and mouse cell lines (labelled MEF and Patski).
+
+_Footnote:_  
+\*\*: The ML4 files are of slightly different file format than the other sets.  Specifically, the `*.validPairs.txt.gz` file has an additional three columns appended at the end - `ramani::read_validpairs()` will _not_ be able to read those data because of that.
 
 
 ## R API
