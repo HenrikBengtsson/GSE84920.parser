@@ -2,33 +2,16 @@
 
 This [R] package provides a shell script and an R API for working with the Ramani et al. (2017) Hi-C data set.
 
-The Ramani data set is published on NCBI's Gene Expression Omnibus (GEO) in the GEO series [GSE84920] \(titled 'Massively multiplex single-cell Hi-C'\).  it contains GEO samples:
+The Ramani data set is published on NCBI's Gene Expression Omnibus (GEO) in the GEO series [GSE84920] \(titled 'Massively multiplex single-cell Hi-C'\), which contains:
 
- * [GSM2254215]: Combinatorial scHi-C Library ML1
-   - human cells ('HAP1', 'HeLa')
-   - mouse cells ('MEF', 'Patski')
- * [GSM2254216]: Combinatorial scHi-C Library ML2
-   - human cells ('HAP1', 'HeLa')
-   - mouse cells ('MEF', 'Patski')
- * [GSM2254217]: Combinatorial scHi-C Library ML3
-   - human cells ('GM12878', 'K562')
-   - mouse cells ('MEF', 'Patski')
- * [GSM2254218]: Combinatorial scHi-C Library PL1
-   - human cells ('HAP1', 'HeLa')
-   - mouse cells ('MEF', 'Patski')
- * [GSM2254219]: Combinatorial scHi-C Library PL2
-   - human cells ('HAP1', 'HeLa')
-   - mouse cells ('MEF', 'Patski')
- * [GSM2438426]: Combinatorial scHi-C Library ML4 (\*\*):
-   - human cells ('Asynchronous', 'Nocadazole')
-   - mouse cells ('Patski')
-   
-
-All samples have human cell lines (labelled 'HAP1', 'HeLa', 'K562', 'Asynchronous', 'Nocadazole'), and mouse cell lines (labelled 'MEF' and 'Patski').
-
-
-_Footnote:_  
-\*\*: The ML4 files are of slightly different file format than the other sets.  Specifically, the `*.validPairs.txt.gz` file has an additional three columns appended at the end - `ramani::read_validpairs()` will _not_ be able to read those data because of that.
+| GEO Sample          | GEO Title                         | Cell Types
+| ------------------- | --------------------------------- | ------------
+| [GSM2254215]        | Combinatorial scHi-C Library ML1  | human ('HAP1', 'HeLa'), mouse ('MEF', 'Patski')
+| [GSM2254216]        | Combinatorial scHi-C Library ML2  | human ('HAP1', 'HeLa'), mouse ('MEF', 'Patski')
+| [GSM2254217]        | Combinatorial scHi-C Library ML3  | human ('GM12878', 'K562'), mouse ('MEF', 'Patski')
+| [GSM2254218]        | Combinatorial scHi-C Library PL1  | human ('HAP1', 'HeLa'), mouse ('MEF', 'Patski')
+| [GSM2254219]        | Combinatorial scHi-C Library PL2  | human ('HAP1', 'HeLa'), mouse ('MEF', 'Patski')
+| [GSM2438426]**      | Combinatorial scHi-C Library ML4  | human ('Asynchronous', 'Nocadazole'), mouse ('Patski')
 
 
 ## R API
@@ -110,6 +93,10 @@ Lets look at the content of each of these `*.txt.gz` files:
 
 
 Reading the _full_ Ramani HiC files can take quite a while, particularly the ones with "assignments" and "validPairs" data.  Because of this, you might want to import these data (once) into a local database and work with the data from there.  See `help("import_assignments", package = "ramani")` for an example showing how to import into an SQLite database on file, which is easy since it requires zero setup.
+
+
+_Footnote:_  
+\*\*: The ML4 files are of slightly different file format than the other sets.  Specifically, the `*.validPairs.txt.gz` file has an additional three columns appended at the end - `ramani::read_validpairs()` will _not_ be able to read those data because of that.
 
 
 
