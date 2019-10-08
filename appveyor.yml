@@ -28,7 +28,7 @@ environment:
 init:
   ps: |
         $ErrorActionPreference = "Stop"
-        Invoke-WebRequest https://raw.github.com/HenrikBengtsson/r-appveyor/master/scripts/appveyor-tool.ps1 -OutFile "..\appveyor-tool.ps1"
+        Invoke-WebRequest https://raw.github.com/krlmlr/r-appveyor/master/scripts/appveyor-tool.ps1 -OutFile "..\appveyor-tool.ps1"
         Import-Module '..\appveyor-tool.ps1'
 install:
   ps: |
@@ -42,8 +42,11 @@ cache:
 
 build_script:
   - echo Current directory=%CD%
-  - travis-tool.sh install_r DBI dplyr readr dbplyr RSQLite
-
+  - travis-tool.sh install_r DBI dplyr readr
+  - travis-tool.sh install_r commonmark
+  - travis-tool.sh install_r dbplyr RSQLite
+  - travis-tool.sh install_github HenrikBengtsson/ramani@develop
+  
 test_script:
   - travis-tool.sh run_tests
 

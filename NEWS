@@ -1,6 +1,13 @@
 ramani
 ======
 
+Version: 0.2.0 [2018-10-08]
+
+DOCUMENTATION:
+
+ * Add package vignette.
+ 
+
 Version: 0.1.2 [2018-07-03]
 
 BUG FIXES:
@@ -13,7 +20,7 @@ Version: 0.1.1 [2018-07-03]
 
 DOCUMENTATION:
 
- * Added more details to 'split.sh --help'
+ * Add more details to 'split.sh --help'
  
 BUG FIXES:
 

@@ -45,5 +45,19 @@ path <- system.file("extdata", package = "ramani")
 file <- file.path(path, "GSM2254215_ML1.rows=1-1000_assignments.txt.gz")
 data <- read_assignments(file)
 print(data)
+# # A tibble: 1,000 x 4
+#    readname                   left_inner_barcode right_inner_barc… outer_barcode
+#    <chr>                      <chr>              <chr>             <chr>        
+#  1 D00584:136:HMTLJBCXX:1:11… CTCTCACG           CTCTCACG          TCAGATGC     
+#  2 D00584:136:HMTLJBCXX:1:11… GCACCATG           GCACCATG          GTGTAGCA     
+#  3 D00584:136:HMTLJBCXX:1:11… AGGTGCGA           AGGTGCGA          GTATCTAT     
+#  4 D00584:136:HMTLJBCXX:1:11… GCCTTAGG           GCCTTAGG          CAGCATAT     
+#  5 D00584:136:HMTLJBCXX:1:11… CACCTGTG           CACCTGTG          TACTAAGC     
+#  6 D00584:136:HMTLJBCXX:1:11… CCGCTACG           CCGCTACG          CAGCATAT     
+#  7 D00584:136:HMTLJBCXX:1:11… GCCTCGAA           GCCTCGAA          GTATCTAT     
+#  8 D00584:136:HMTLJBCXX:1:11… CTGGTCAC           CTGGTCAC          TTGACCAT     
+#  9 D00584:136:HMTLJBCXX:1:11… CTGCGTAG           CTGCGTAG          TATCTTGT     
+# 10 D00584:136:HMTLJBCXX:1:11… CACGACCT           CACGACCT          GATGATCC     
+# # … with 990 more rows
 
 }
