@@ -42,8 +42,10 @@ cache:
 
 build_script:
   - echo Current directory=%CD%
-  - travis-tool.sh install_r DBI dplyr readr dbplyr RSQLite
+  - travis-tool.sh install_r DBI dplyr readr
+  - Rscript -e "install.packages('.', repos=NULL)"
   - travis-tool.sh install_r commonmark
+  - travis-tool.sh install_r dbplyr RSQLite
   
 test_script:
   - travis-tool.sh run_tests
