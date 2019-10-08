@@ -13,11 +13,9 @@ Suggests:
     dbplyr,
     RSQLite,
     tools,
-    commonmark,
-    knitr
+    commonmark
 VignetteBuilder:
-    ramani,
-    knitr
+    ramani
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
