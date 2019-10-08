@@ -146,6 +146,27 @@ License: GPL (>= 3.0)
 Source: https://github.com/HenrikBengtsson/ramani
 ```
 
+## Data
+
+The subsetted example GSM2254215_ML1 files in the `system.file("extdata", package = "ramani")` folder were obtained by first downloading relevant GEO files and truncating using the following Bash script:
+
+```sh
+url_path="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSM2254215&format=file"
+sample=GSM2254215_ML1
+types=(percentages validPairs assignments)
+tmpfile=$(mktemp)
+mkdir -p inst/extdata/
+for type in "${types[@]}"; do
+  src=$sample.$type.txt.gz
+  dest=inst/extdata/$sample.rows=1-1000.$type.txt
+  curl "$url_path&file=$src" -o "$tmpfile"
+  zcat "$tmpfile" | head -1000 > "$dest"
+  gzip "$dest"
+done
+rm -- "$tmpfile"
+```
+
+
 
 ## References
 
