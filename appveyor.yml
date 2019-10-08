@@ -45,7 +45,7 @@ build_script:
   - travis-tool.sh install_r DBI dplyr readr
   - travis-tool.sh install_r commonmark
   - travis-tool.sh install_r dbplyr RSQLite
-  - travis-tool.sh install_github HenrikBengtsson/ramani
+  - travis-tool.sh install_github HenrikBengtsson/ramani@develop
   
 test_script:
   - travis-tool.sh run_tests
