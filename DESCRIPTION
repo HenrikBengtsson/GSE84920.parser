@@ -11,7 +11,13 @@ Imports:
     readr
 Suggests:
     dbplyr,
-    RSQLite
+    RSQLite,
+    tools,
+    commonmark,
+    knitr
+VignetteBuilder:
+    ramani,
+    knitr
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
