@@ -16,6 +16,27 @@ The Ramani data set is published on NCBI's Gene Expression Omnibus (GEO) in the 
 | [GSM2438426]**      | Combinatorial scHi-C Library ML4  | human ('Asynchronous', 'Nocadazole'), mouse ('Patski')
 
 
+## Data
+
+The subsetted example GSM2254215_ML1 files in the `system.file("extdata", package = "ramani")` folder were obtained by first downloading relevant GEO files and truncating using the following Bash script:
+
+```sh
+url_path="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSM2254215&format=file"
+sample=GSM2254215_ML1
+types=(percentages validPairs assignments)
+tmpfile=$(mktemp)
+mkdir -p inst/extdata/
+for type in "${types[@]}"; do
+  src=$sample.$type.txt.gz
+  dest=inst/extdata/$sample.rows=1-1000.$type.txt
+  curl "$url_path&file=$src" -o "$tmpfile"
+  zcat "$tmpfile" | head -1000 > "$dest"
+  gzip "$dest"
+done
+rm -- "$tmpfile"
+```
+
+
 ## R API
 
 This R package provides functions for reading the above GEO data set, and other data with the same file formats, into R.  It also includes a small subset of the ML1 data for the purpose of illustrating and testing the different functions:
@@ -106,7 +127,7 @@ _Footnote:_
 
 ### Splitting whole-genome files into chromosome-pair files
 
-The package also provides a Bash script for splitting a HiC-count data file into chromosome-pair files.  This  [`split.sh`](inst/scripts/split.sh) script is located under `system.file("scripts", package = "ramani")`.
+The package also provides a Bash script for splitting a raw HiC-count data file into chromosome-pair files, e.g. HiC sequence data files in [GSE35156] (Dixon, et al., 2012).  This  [`split.sh`](inst/scripts/split.sh) script is located under `system.file("scripts", package = "ramani")`.
 
 ```
 $ split.sh 
@@ -146,34 +167,29 @@ License: GPL (>= 3.0)
 Source: https://github.com/HenrikBengtsson/ramani
 ```
 
-## Data
-
-The subsetted example GSM2254215_ML1 files in the `system.file("extdata", package = "ramani")` folder were obtained by first downloading relevant GEO files and truncating using the following Bash script:
-
-```sh
-url_path="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSM2254215&format=file"
-sample=GSM2254215_ML1
-types=(percentages validPairs assignments)
-tmpfile=$(mktemp)
-mkdir -p inst/extdata/
-for type in "${types[@]}"; do
-  src=$sample.$type.txt.gz
-  dest=inst/extdata/$sample.rows=1-1000.$type.txt
-  curl "$url_path&file=$src" -o "$tmpfile"
-  zcat "$tmpfile" | head -1000 > "$dest"
-  gzip "$dest"
-done
-rm -- "$tmpfile"
-```
+_Comment_: This `split.sh` script is unrelated to the Ramani et al. (2017) study.  It might be better fitted for the [TopDomData] R package.
 
 
 
 ## References
 
-1. Ramani, V., Deng, X., Qiu, R., Gunderson, K. L., Steemers, F. J., Disteche, C. M., … Shendure, J. (2017). Massively multiplex single-cell Hi-C. Nature methods, 14(3), 263–266. doi:10.1038/nmeth.4155, [PMC5330809](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5330809/)
+1. Ramani, V., Deng, X., Qiu, R., Gunderson, K. L., Steemers, F. J., Disteche,
+   C. M., ..., Shendure, J. (2017). Massively multiplex single-cell Hi-C.
+   Nature methods, 14(3), 263–266.
+   doi:10.1038/nmeth.4155,
+   [PMC5330809](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5330809/).
 
+2. Dixon JR, Selvaraj S, Yue F, Kim A, et al. Topological domains in
+   mammalian genomes identified by analysis of chromatin interactions.
+   Nature 2012 Apr 11; 485(7398):376-80,
+   doi: 10.1038/nature11082,
+   PMCID: [PMC3356448](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3356448/),
+   PMID: 22495300.
+    
 [R]: https://www.r-project.org/
+[TopDomData]: https://github.com/HenrikBengtsson/TopDomData
 [remotes]: https://cran.r-project.org/package=remotes
+[GSE35156]: http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE35156
 [GSE84920]: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE84920
 [GSM2254215]: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2254215
 [GSM2254216]: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2254216
