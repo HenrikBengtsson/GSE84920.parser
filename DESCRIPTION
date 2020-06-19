@@ -1,8 +1,8 @@
 Package: ramani
-Title: Access Ramani et al. Hi-C Data
+Title: Parsers for the GSE84920 Hi-C Data Sets of Ramani et al. (2017)
 Version: 0.2.1-9000
 Authors@R: person("Henrik", "Bengtsson", email = "henrik.bengtsson@ucsf.edu", role = c("aut", "cre"))
-Description: Methods for working with the Ramani et al. Hi-C data sets.
+Description: Methods for reading the GSE84920 data sets titled 'Massively multiplex single-cell Hi-C' of Ramani et al. (2017).
 Depends:
     R (>= 3.4.0)
 Imports:
