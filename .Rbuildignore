@@ -1,14 +1,14 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^references/
+^references
 ^[^/]*\.psl$
 ^[^/]*\.psl\.scores$
-^incl/
-^.sqlite_data/
+^incl
+^.sqlite_data
 .travis.yml
 appveyor.yml
 CONDUCT.md
 OVERVIEW.md
 Makefile
-^.make/
+^.make
 

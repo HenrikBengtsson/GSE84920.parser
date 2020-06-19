@@ -15,7 +15,7 @@ using \code{\link[=read_validpairs]{read_validpairs()}}.}
 \item{debug}{Should debug output be produced or not?}
 }
 \value{
-(invisibly) A \link[dbplyr:tbl_dbi]{dbplyr::tbl_dbi} object.
+(invisibly) A \link[dbplyr:tbl.src_dbi]{dbplyr::tbl_dbi} object.
 }
 \description{
 Import a Valid Pair File to Database
