@@ -1,4 +1,4 @@
-# ramani: Access Ramani et al. Hi-C Data
+# GSE84920.parser: Parsers for the GSE84920 Hi-C Data Sets of Ramani et al. (2017)
 
 
 
@@ -18,7 +18,7 @@ The Ramani data set is published on NCBI's Gene Expression Omnibus (GEO) in the 
 
 ## Data
 
-The subsetted example GSM2254215_ML1 files in the `system.file("extdata", package = "ramani")` folder were obtained by first downloading relevant GEO files and truncating using the following Bash script:
+The subsetted example GSM2254215_ML1 files in the `system.file("extdata", package = "GSE84920.parser")` folder were obtained by first downloading relevant GEO files and truncating using the following Bash script:
 
 ```sh
 url_path="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSM2254215&format=file"
@@ -42,8 +42,8 @@ rm -- "$tmpfile"
 This R package provides functions for reading the above GEO data set, and other data with the same file formats, into R.  It also includes a small subset of the ML1 data for the purpose of illustrating and testing the different functions:
 
 ```r
-> library(ramani)
-> path <- system.file("extdata", package = "ramani")
+> library(GSE84920.parser)
+> path <- system.file("extdata", package = "GSE84920.parser")
 > dir(path)
 [1] "combo_hg19_mm10.genomesize"                   
 [2] "GSM2254215_ML1.rows=1-1000_assignments.txt.gz"
@@ -115,11 +115,11 @@ Lets look at the content of each of these `*.txt.gz` files:
 ```
 
 
-Reading the _full_ Ramani HiC files can take quite a while, particularly the ones with "assignments" and "validPairs" data.  Because of this, you might want to import these data (once) into a local database and work with the data from there.  See `help("import_assignments", package = "ramani")` for an example showing how to import into an SQLite database on file, which is easy since it requires zero setup.
+Reading the _full_ Ramani HiC files can take quite a while, particularly the ones with "assignments" and "validPairs" data.  Because of this, you might want to import these data (once) into a local database and work with the data from there.  See `help("import_assignments", package = "GSE84920.parser")` for an example showing how to import into an SQLite database on file, which is easy since it requires zero setup.
 
 
 _Footnote:_  
-\*\*: The ML4 files are of slightly different file format than the other sets.  Specifically, the `*.validPairs.txt.gz` file has an additional three columns appended at the end - `ramani::read_validpairs()` will _not_ be able to read those data because of that.
+\*\*: The ML4 files are of slightly different file format than the other sets.  Specifically, the `*.validPairs.txt.gz` file has an additional three columns appended at the end - `GSE84920.parser::read_validpairs()` will _not_ be able to read those data because of that.
 
 
 
@@ -127,7 +127,7 @@ _Footnote:_
 
 ### Splitting whole-genome files into chromosome-pair files
 
-The package also provides a Bash script for splitting a raw HiC-count data file into chromosome-pair files, e.g. HiC sequence data files in [GSE35156] (Dixon, et al., 2012).  This  [`split.sh`](inst/scripts/split.sh) script is located under `system.file("scripts", package = "ramani")`.
+The package also provides a Bash script for splitting a raw HiC-count data file into chromosome-pair files, e.g. HiC sequence data files in [GSE35156] (Dixon, et al., 2012).  This  [`split.sh`](inst/scripts/split.sh) script is located under `system.file("scripts", package = "GSE84920.parser")`.
 
 ```
 $ split.sh 
@@ -199,7 +199,7 @@ _Comment_: This `split.sh` script is unrelated to the Ramani et al. (2017) study
 [GSM2438426]: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2438426
 
 ## Installation
-R package ramani is only available via [GitHub](https://github.com/HenrikBengtsson/ramani) and can be installed in R as:
+R package GSE84920.parser is only available via [GitHub](https://github.com/HenrikBengtsson/ramani) and can be installed in R as:
 ```r
 remotes::install_github("HenrikBengtsson/ramani")
 ```
@@ -218,13 +218,13 @@ This will install the package from source.
 
 This Git repository uses the [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/) branching model (the [`git flow`](https://github.com/petervanderdoes/gitflow-avh) extension is useful for this).  The [`develop`](https://github.com/HenrikBengtsson/ramani/tree/develop) branch contains the latest contributions and other code that will appear in the next release, and the [`master`](https://github.com/HenrikBengtsson/ramani) branch contains the code of the latest release.
 
-Contributing to this package is easy.  Just send a [pull request](https://help.github.com/articles/using-pull-requests/).  When you send your PR, make sure `develop` is the destination branch on the [ramani repository](https://github.com/HenrikBengtsson/ramani).  Your PR should pass `R CMD check --as-cran`, which will also be checked by <a href="https://travis-ci.org/HenrikBengtsson/ramani">Travis CI</a> and <a href="https://ci.appveyor.com/project/HenrikBengtsson/ramani">AppVeyor CI</a> when the PR is submitted.
+Contributing to this package is easy.  Just send a [pull request](https://help.github.com/articles/using-pull-requests/).  When you send your PR, make sure `develop` is the destination branch on the [GSE84920.parser repository](https://github.com/HenrikBengtsson/ramani).  Your PR should pass `R CMD check --as-cran`, which will also be checked by <a href="https://travis-ci.org/HenrikBengtsson/ramani">Travis CI</a> and <a href="https://ci.appveyor.com/project/HenrikBengtsson/ramani">AppVeyor CI</a> when the PR is submitted.
 
 
 ## Software status
 
-| Resource:     | GitHub        | Travis CI       | AppVeyor         |
-| ------------- | ------------------- | --------------- | ---------------- |
-| _Platforms:_  | _Multiple_          | _Linux & macOS_ | _Windows_        |
-| R CMD check   |  | <a href="https://travis-ci.org/HenrikBengtsson/ramani"><img src="https://travis-ci.org/HenrikBengtsson/ramani.svg" alt="Build status"></a>   | <a href="https://ci.appveyor.com/project/HenrikBengtsson/ramani"><img src="https://ci.appveyor.com/api/projects/status/github/HenrikBengtsson/ramani?svg=true" alt="Build status"></a> |
-| Test coverage |                     | <a href="https://codecov.io/gh/HenrikBengtsson/ramani"><img src="https://codecov.io/gh/HenrikBengtsson/ramani/branch/develop/graph/badge.svg" alt="Coverage Status"/></a>     |                  |
+| Resource      | GitHub        | GitHub Actions      | Travis CI       | AppVeyor CI      |
+| ------------- | ------------------- | ------------------- | --------------- | ---------------- |
+| _Platforms:_  | _Multiple_          | _Multiple_          | _Linux & macOS_ | _Windows_        |
+| R CMD check   |  |        | <a href="https://travis-ci.org/HenrikBengtsson/ramani"><img src="https://travis-ci.org/HenrikBengtsson/ramani.svg" alt="Build status"></a>   | <a href="https://ci.appveyor.com/project/HenrikBengtsson/ramani"><img src="https://ci.appveyor.com/api/projects/status/github/HenrikBengtsson/ramani?svg=true" alt="Build status"></a> |
+| Test coverage |                     |                     | <a href="https://codecov.io/gh/HenrikBengtsson/ramani"><img src="https://codecov.io/gh/HenrikBengtsson/ramani/branch/develop/graph/badge.svg" alt="Coverage Status"/></a>     |                  |

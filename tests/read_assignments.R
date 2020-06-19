@@ -1,6 +1,6 @@
-library("ramani")
+library("GSE84920.parser")
 
-path <- system.file("extdata", package = "ramani")
+path <- system.file("extdata", package = "GSE84920.parser")
 file <- file.path(path, "GSM2254215_ML1.rows=1-1000_assignments.txt.gz")
 data <- read_assignments(file)
 print(data)

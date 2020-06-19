@@ -1,6 +1,6 @@
-Package: ramani
+Package: GSE84920.parser
 Title: Parsers for the GSE84920 Hi-C Data Sets of Ramani et al. (2017)
-Version: 0.2.1-9000
+Version: 0.2.9-9000
 Authors@R: person("Henrik", "Bengtsson", email = "henrik.bengtsson@ucsf.edu", role = c("aut", "cre"))
 Description: Methods for reading the GSE84920 data sets titled 'Massively multiplex single-cell Hi-C' of Ramani et al. (2017).
 Depends:
@@ -15,7 +15,7 @@ Suggests:
     tools,
     commonmark
 VignetteBuilder:
-    ramani
+    GSE84920.parser
 License: GPL (>= 3)
 URL: https://github.com/HenrikBengtsson/ramani
 BugReports: https://github.com/HenrikBengtsson/ramani/issues

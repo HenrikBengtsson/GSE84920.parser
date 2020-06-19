@@ -1,6 +1,6 @@
-%\VignetteIndexEntry{ramani: Access Ramani et al. Hi-C Data}
+%\VignetteIndexEntry{GSE84920.parser: Working with the GSE84920 Hi-C Data Sets}
 %\VignetteAuthor{Henrik Bengtsson}
-%\VignetteEngine{ramani::self}
+%\VignetteEngine{GSE84920.parser::self}
 %\VignetteEncoding{UTF-8}
 %\VignetteKeyword{R}
 %\VignetteKeyword{package}
@@ -23,7 +23,7 @@ The Ramani data set is published on NCBI's Gene Expression Omnibus (GEO) in the 
 
 ## Data
 
-The subsetted example GSM2254215_ML1 files in the `system.file("extdata", package = "ramani")` folder were obtained by first downloading relevant GEO files and truncating using the following Bash script:
+The subsetted example GSM2254215_ML1 files in the `system.file("extdata", package = "GSE84920.parser")` folder were obtained by first downloading relevant GEO files and truncating using the following Bash script:
 
 ```sh
 url_path="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSM2254215&format=file"
@@ -47,8 +47,8 @@ rm -- "$tmpfile"
 This R package provides functions for reading the above GEO data set, and other data with the same file formats, into R.  It also includes a small subset of the ML1 data for the purpose of illustrating and testing the different functions:
 
 ```r
-> library(ramani)
-> path <- system.file("extdata", package = "ramani")
+> library(GSE84920.parser)
+> path <- system.file("extdata", package = "GSE84920.parser")
 > dir(path)
 [1] "combo_hg19_mm10.genomesize"                   
 [2] "GSM2254215_ML1.rows=1-1000_assignments.txt.gz"
@@ -120,11 +120,11 @@ Lets look at the content of each of these `*.txt.gz` files:
 ```
 
 
-Reading the _full_ Ramani HiC files can take quite a while, particularly the ones with "assignments" and "validPairs" data.  Because of this, you might want to import these data (once) into a local database and work with the data from there.  See `help("import_assignments", package = "ramani")` for an example showing how to import into an SQLite database on file, which is easy since it requires zero setup.
+Reading the _full_ Ramani HiC files can take quite a while, particularly the ones with "assignments" and "validPairs" data.  Because of this, you might want to import these data (once) into a local database and work with the data from there.  See `help("import_assignments", package = "GSE84920.parser")` for an example showing how to import into an SQLite database on file, which is easy since it requires zero setup.
 
 
 _Footnote:_  
-\*\*: The ML4 files are of slightly different file format than the other sets.  Specifically, the `*.validPairs.txt.gz` file has an additional three columns appended at the end - `ramani::read_validpairs()` will _not_ be able to read those data because of that.
+\*\*: The ML4 files are of slightly different file format than the other sets.  Specifically, the `*.validPairs.txt.gz` file has an additional three columns appended at the end - `GSE84920.parser::read_validpairs()` will _not_ be able to read those data because of that.
 
 
 
@@ -132,7 +132,7 @@ _Footnote:_
 
 ### Splitting whole-genome files into chromosome-pair files
 
-The package also provides a Bash script for splitting a raw HiC-count data file into chromosome-pair files, e.g. HiC sequence data files in [GSE35156] (Dixon, et al., 2012).  This  [`split.sh`](inst/scripts/split.sh) script is located under `system.file("scripts", package = "ramani")`.
+The package also provides a Bash script for splitting a raw HiC-count data file into chromosome-pair files, e.g. HiC sequence data files in [GSE35156] (Dixon, et al., 2012).  This  [`split.sh`](inst/scripts/split.sh) script is located under `system.file("scripts", package = "GSE84920.parser")`.
 
 ```
 $ split.sh 

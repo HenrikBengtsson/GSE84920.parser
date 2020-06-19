@@ -24,7 +24,7 @@ Import an Assignments File to Database
 name <- "GSM2254215_ML1.rows=1-1000"
 con <- db_connect(name, path = file.path(tempdir(), ".sqlite_data"))
 
-path <- system.file("extdata", package = "ramani")
+path <- system.file("extdata", package = "GSE84920.parser")
 import_assignments(con, file = file.path(path, sprintf("\%s_assignments.txt.gz", name)))
 import_validpairs(con, file = file.path(path, sprintf("\%s.validPairs.txt.gz", name)))
 

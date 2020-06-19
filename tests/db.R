@@ -1,6 +1,6 @@
-library("ramani")
+library("GSE84920.parser")
 library("dplyr")
-path <- system.file("extdata", package = "ramani", mustWork = TRUE)
+path <- system.file("extdata", package = "GSE84920.parser", mustWork = TRUE)
 
 name <- "GSM2254215_ML1"
 con <- db_connect(name, path = tempfile("sqlite_data"))
