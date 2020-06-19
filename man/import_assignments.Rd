@@ -15,7 +15,7 @@ using \code{\link[=read_assignments]{read_assignments()}}.}
 \item{debug}{Should debug output be produced or not?}
 }
 \value{
-(invisibly) A \link[dbplyr:tbl_dbi]{dbplyr::tbl_dbi} object.
+(invisibly) A \link[dbplyr:tbl.src_dbi]{dbplyr::tbl_dbi} object.
 }
 \description{
 Import an Assignments File to Database

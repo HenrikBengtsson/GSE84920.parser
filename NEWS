@@ -6,7 +6,10 @@ Version: 0.2.0-9000 [2020-06-18]
 BUG FIXES:
 
  * TESTS: Package tests failed with tibble (>= 3.0.0).
- 
+
+ * DOCS: Cross-reference links in some help pages produced errors
+   in recent R-devel checks.
+
 
 Version: 0.2.0 [2018-10-08]
 

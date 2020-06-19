@@ -7,7 +7,7 @@
 nrow2(tbl)
 }
 \arguments{
-\item{tbl}{A \link[dbplyr:tbl_dbi]{dbplyr::tbl_dbi} object.}
+\item{tbl}{A \link[dbplyr:tbl.src_dbi]{dbplyr::tbl_dbi} object.}
 }
 \value{
 An integer.

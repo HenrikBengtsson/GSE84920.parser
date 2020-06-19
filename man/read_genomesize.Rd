@@ -9,7 +9,7 @@ read_genomesize(file, ...)
 \arguments{
 \item{file}{Pathname to a \file{*.genomesize} file.}
 
-\item{...}{Additional arguments passed to \code{\link[readr:read_tsv]{readr::read_tsv()}}.}
+\item{...}{Additional arguments passed to \code{\link[readr:read_delim]{readr::read_tsv()}}.}
 }
 \value{
 A data.frame with four columns:

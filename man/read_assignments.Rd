@@ -11,7 +11,7 @@ read_assignments(file, columns = NULL, ...)
 
 \item{columns}{(optional) Name of columns to be read.}
 
-\item{...}{Additional arguments passed to \code{\link[readr:read_tsv]{readr::read_tsv()}}.}
+\item{...}{Additional arguments passed to \code{\link[readr:read_delim]{readr::read_tsv()}}.}
 }
 \value{
 A data.frame with four columns:
