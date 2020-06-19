@@ -28,7 +28,7 @@ The description here are adopted from \href{ftp://ftp.ncbi.nlm.nih.gov/geo/serie
 It is sparse on what 'assignments' files are, but it says:
 "TXT [ed. we think they meant ASSIGNMENTS] files represent the barcode
 associations for each sequenced read where two barcodes were identifiable.
-The format is \code{READNAME\\tLEFT_INNER_BARCODE\\tRIGHT_INNER_BARCODE\\tOUTER_BARCODE},
+The format is \verb{READNAME\\tLEFT_INNER_BARCODE\\tRIGHT_INNER_BARCODE\\tOUTER_BARCODE},
 where \code{LEFT_INNER_BARCODE} and \code{RIGHT_INNER_BARCODE} should match for
 valid reads.  We include all reads here, but note that for all analyses
 presented in the associated paper, all reads where these barcodes do not
