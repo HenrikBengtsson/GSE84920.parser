@@ -201,14 +201,14 @@ _Comment_: This `split.sh` script is unrelated to the Ramani et al. (2017) study
 ## Installation
 R package GSE84920.parser is only available via [GitHub](https://github.com/HenrikBengtsson/GSE84920.parser) and can be installed in R as:
 ```r
-remotes::install_github("HenrikBengtsson/GSE84920.parser")
+remotes::install_github("HenrikBengtsson/GSE84920.parser", ref="master")
 ```
 
 ### Pre-release version
 
 To install the pre-release version that is available in Git branch `develop` on GitHub, use:
 ```r
-remotes::install_github("HenrikBengtsson/GSE84920.parser@develop")
+remotes::install_github("HenrikBengtsson/GSE84920.parser", ref="develop")
 ```
 This will install the package from source.  
 
