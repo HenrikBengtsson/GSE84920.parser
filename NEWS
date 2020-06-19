@@ -1,9 +1,11 @@
 ramani
 ======
 
-Version: 0.2.0-9000 [2018-10-08]
+Version: 0.2.0-9000 [2020-06-18]
 
- * ...
+BUG FIXES:
+
+ * TESTS: Package tests failed with tibble (>= 3.0.0).
  
 
 Version: 0.2.0 [2018-10-08]
